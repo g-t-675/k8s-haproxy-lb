@@ -1,0 +1,13 @@
+[Unit]
+Description=12app load balancer
+Requires=kubelet.service
+After=kubelet.service
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 5
+ExecStart=/etc/cubyte/12app/kube_load.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
